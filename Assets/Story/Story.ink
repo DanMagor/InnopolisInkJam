@@ -1,7 +1,11 @@
-VAR health = 100
 VAR intelegence = 0
-VAR strength = 0
+VAR strength = 10
 VAR agility = 0
+VAR HP = 100
+VAR Intelligence = 10
+VAR Floor = ->FourthFloor
+VAR Next = ->FirstFloor
+VAR WerewolfHP = 100
 
 
 "Don't Enter Get Away"
@@ -147,12 +151,90 @@ Let's go on the fourth floor
 ->FourthFloor
 
 
-
-==FourthFloor==
+===FourthFloor===
+~ Floor = ->FourthFloorFight
+~ Next = ->FifthFloor
+Werewolf : These are the last moments of your life, no one can beat my strength...
+->FourthFloorFight
 ->DONE
 
-==DEAD==
-You dead
+===FourthFloorFight===
++[Fire Bolt]
+{
+ -Intelligence < 20 :
+ No Enough Intelligence ! ->LoseHP(10)
+ -else:
+ Fire Bolt ! 
+ "Werewolf is burning"
+ ~ Intelligence = Intelligence + 5
+ \+5 Intelligence
+ ->FifthFloor
+ }
+->DONE
+
++[Sword Attack]
+My sword will beat you... 
+{
+-strength < 30 :
+No enough Strength to beat the Werewolf! 
+->LoseHP(20)
+->FourthFloorFight
+-else:
+"You attack Werewolf"...
+"Werewolf's hp decreases"...
+
+~ WerewolfHP = WerewolfHP - 40 
+{
+- WerewolfHP < 0:
+~strength = strength + 5
+\+5 Strength
+->Win
+- else:
+"Werewolf attacks you"....
+->LoseHP(10)
+->FourthFloorFight
+}
+ ->Win
+ ->FifthFloor
+ }
+->DONE
+
+->DONE
+
+
+
+
+
+
+
+
+
+
+===LoseHP(n)===
+~ HP = HP - n
+<\n>//migh cause a problem
+TODO: Make sure that this doesn't make problems
+ \-10 HP
+{
+-HP <= 0 :
+->Lose
+-else:
+->Floor
+}
+
+ 
+->DONE
+
+===Lose===
+Game Over
+->END
+
+===Win===
+"Congrats ! , You Won!"
+->DONE
+
+===FifthFloor===
+
 ->DONE
 
 
