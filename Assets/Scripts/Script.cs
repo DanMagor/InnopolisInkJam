@@ -39,4 +39,9 @@ public class Script : MonoBehaviour {
         _inkStory.ChooseChoiceIndex(index);
         
     }
+
+    private void CheckTags(string tag)
+    {
+
+    }
 }

@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 935024a3d392195458c05bca6a6d22ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inkAsset: {fileID: 4900000, guid: 0873e165d67c04f499d9e7305c9ceca6, type: 3}
+  inkAsset: {fileID: 4900000, guid: bbbdec9a9fbe9264c99fc88c9f7f1d6e, type: 3}
   MainText: {fileID: 1700178692}
   ChoiceButton0: {fileID: 1206617086}
   ChoiceButton1: {fileID: 1627592575}
