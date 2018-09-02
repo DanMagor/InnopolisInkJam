@@ -31,6 +31,11 @@ public class Script : MonoBehaviour {
             choice = _inkStory.currentChoices[1];
             ChoiceButton1.GetComponentInChildren<Text>().text = choice.text;
         }
+        else {
+            Choice choice = _inkStory.currentChoices[0];
+            ChoiceButton0.GetComponentInChildren<Text>().text = choice.text;
+            ChoiceButton1.GetComponentInChildren<Text>().text = "";
+        }
         
     }
 
