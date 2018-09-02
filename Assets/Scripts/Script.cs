@@ -37,5 +37,6 @@ public class Script : MonoBehaviour {
     public void MakeChoise(int index)
     {
         _inkStory.ChooseChoiceIndex(index);
+        
     }
 }
